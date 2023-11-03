@@ -14,7 +14,9 @@ services:
     ports:
       - '5000:5000'
     volumes:
-        - ./backend:/app
+      - ./backend:/app
+    environment:
+      BACKEND_HOSTNAME: "http://localhost:5000"
     depends_on: 
       - postgres
   frontend: 
@@ -24,7 +26,7 @@ services:
     volumes: 
       - ./frontend/src:/app/src
     environment:
-      - REACT_APP_HOSTNAME=localhost
+      REACT_APP_HOSTNAME: "localhost"
     stdin_open: true
     tty: true
     depends_on: 

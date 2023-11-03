@@ -1,5 +1,8 @@
 import re
 import requests
+import os
+
+base_url = os.environ.get("BACKEND_HOSTNAME", "http://localhost:5000")
 
 
 def get_invoice_number(words):
@@ -299,7 +302,7 @@ def parse_text(text):
 
     supplier_ico = get_supplier_ico(words)
     if supplier_ico:
-        details_url = f"http://localhost:5000/get_details?ico={supplier_ico}"
+        details_url = f"{base_url}/get_details?ico={supplier_ico}"
         supplier_details = requests.post(details_url)
 
         if supplier_details.status_code == 200:
@@ -307,7 +310,7 @@ def parse_text(text):
 
     buyer_ico = get_buyer_ico(words)
     if buyer_ico:
-        details_url = f"http://localhost:5000/get_details?ico={buyer_ico}"
+        details_url = f"{base_url}/get_details?ico={buyer_ico}"
         buyer_details = requests.post(details_url)
 
         if buyer_details.status_code == 200:
