@@ -23,6 +23,8 @@ services:
       - '3000:3000'
     volumes: 
       - ./frontend/src:/app/src
+    environment:
+      - REACT_APP_HOSTNAME=localhost
     stdin_open: true
     tty: true
     depends_on: 

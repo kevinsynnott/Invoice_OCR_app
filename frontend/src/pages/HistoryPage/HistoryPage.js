@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
-import { useSnackbar } from "notistack";
-import { Grid } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Grid } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import { useStyles } from "./styles";
-import SummaryCard from "../../components/SummaryCard/SummaryCard";
-import InvoiceTable from "../../components/InvoiceTable/InvoiceTable";
-import httpRequest from "../../httpRequest";
+import { useSnackbar } from "notistack";
 import AppLayout from "../../components/AppLayout/AppLayout";
+import InvoiceTable from "../../components/InvoiceTable/InvoiceTable";
+import SummaryCard from "../../components/SummaryCard/SummaryCard";
+import httpRequest from "../../httpRequest";
+import { useStyles } from "./styles";
 
 const HistoryPage = () => {
   const classes = useStyles();
@@ -25,7 +25,7 @@ const HistoryPage = () => {
 
   const fetchInvoiceData = async () => {
     try {
-      const resp = await httpRequest.get("http://localhost:5000/get-invoices");
+      const resp = await httpRequest.get(`http://${process.env.REACT_APP_HOSTNAME}:5000/get-invoices`);
       setInvoicesData(resp.data.invoices);
     } catch (error) {
       console.log("Error");

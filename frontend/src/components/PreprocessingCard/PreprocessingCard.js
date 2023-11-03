@@ -26,7 +26,7 @@ const PreprocessingCard = () => {
     setIsLoading(true);
     try {
       const resp = await httpRequest.post(
-        `http://localhost:5000/${methodEndpoint}`,
+        `http://${process.env.REACT_APP_HOSTNAME}:5000/${methodEndpoint}`,
         formData,
       );
       let bytestring = resp["data"]["image"];

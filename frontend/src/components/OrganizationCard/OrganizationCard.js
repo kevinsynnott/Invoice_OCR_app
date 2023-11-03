@@ -16,7 +16,7 @@ const OrganizationCard = (props) => {
 
   const joinOrganization = async () => {
     try {
-      const resp = await httpRequest.post("http://localhost:5000/join_organization", {
+      const resp = await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/join_organization`, {
         code,
       });
       const status = resp.status;

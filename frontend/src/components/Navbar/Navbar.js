@@ -29,7 +29,7 @@ const Navbar = (props) => {
   };
 
   const logoutUser = async () => {
-    await httpRequest.post("//localhost:5000/logout");
+    await httpRequest.post(`//${process.env.REACT_APP_HOSTNAME}:5000/logout`);
     authContext.logout();
     window.location.href = "/login";
   };
