@@ -3,11 +3,11 @@ import time
 from paddleocr import PaddleOCR
 from app.paddleParser import parse_text
 from app.operations import load_image, add_invoice_to_db, check_if_invoice
-import os
+# import os
 
 paddleocr_bp = Blueprint('paddleocr', __name__)
 
-paddle_lang = os.environ.get("PADDLE_LANGUAGE", "en")
+# paddle_lang = os.environ.get("PADDLE_LANGUAGE", "en")
 
 def compute_average_score_and_text(result):
     total_score = 0
@@ -38,7 +38,8 @@ def process_paddleocr():
         rec_model_dir='paddle_models/en_PP-OCRv3_rec_infer',
         cls_model_dir='paddle_models/ch_ppocr_mobile_v2.0_cls_infer',
         use_angle_cls=True,
-        lang={paddle_lang}
+        lang="en"
+        # lang={paddle_lang}
     )
     img = load_image()
     ocr_method = 'PaddleOCR'
