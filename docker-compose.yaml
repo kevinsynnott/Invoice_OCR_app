@@ -16,9 +16,9 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      BACKEND_HOSTNAME: "192.168.40.170" #HOSTNAME OF BACKEND
-      BACKEND_PORT: "5000" #PORT BACKEND RUNS ON
-      TESS_LANGUAGE: "slk"
+      BACKEND_HOSTNAME: "192.168.40.170" #HOSTNAME/IP OF BACKEND
+      BACKEND_PORT: "5000" #PORT TO BACKEND
+      TESS_LANGUAGE: "eng"
       PADDLE_LANGUAGE: "en"
     depends_on: 
       - postgres
@@ -29,8 +29,8 @@ services:
     volumes: 
       - ./frontend/src:/app/src
     environment:
-      REACT_APP_BACKEND_HOSTNAME: "192.168.40.170" #HOSTNAME OF BACKEND
-      REACT_APP_BACKEND_PORT: "5000" #PORT BACKEND RUNS ON
+      REACT_APP_BACKEND_HOSTNAME: "192.168.40.170" #HOSTNAME/IP OF BACKEND
+      REACT_APP_BACKEND_PORT: "5000" #PORT TO BACKEND
     stdin_open: true
     tty: true
     depends_on: 
