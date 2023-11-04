@@ -36,9 +36,7 @@ def process_tesseract():
     ocr_method = 'Tesseract'
 
     start_time_recognition = time.time()
-    # text = pytesseract.image_to_string(img, lang="slk")
     text = pytesseract.image_to_string(img, lang=tess_lang)
-    # data = pytesseract.image_to_data(img, lang="slk", output_type="dict")
     data = pytesseract.image_to_data(img, lang=tess_lang, output_type="dict")
     recognition_time = time.time() - start_time_recognition
 
