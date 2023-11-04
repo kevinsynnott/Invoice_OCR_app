@@ -53,7 +53,7 @@ const ProfileModal = ({ open, onClose }) => {
 
   const updateUser = async (name, email) => {
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/update-user`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/update-user`, {
         name,
         email,
       });

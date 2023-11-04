@@ -27,7 +27,7 @@ const SideMenu = (props) => {
   const isExtraSmallScreen = useMediaQuery("(max-width:470px)");
 
   const logoutUser = async () => {
-    await httpRequest.post(`//${process.env.REACT_APP_HOSTNAME}:5000/logout`);
+    await httpRequest.post(`//${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/logout`);
     authCtx.logout();
     window.location.href = "/login";
   };

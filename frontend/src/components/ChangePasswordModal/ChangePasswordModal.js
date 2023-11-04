@@ -43,7 +43,7 @@ const ChangePasswordModal = ({ open, onClose }) => {
     }
 
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/change-password`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/change-password`, {
         oldPassword,
         newPassword,
       });

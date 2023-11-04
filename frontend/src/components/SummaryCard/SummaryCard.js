@@ -183,7 +183,7 @@ const SummaryCard = (props) => {
 
   const handleSave = async () => {
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/update-invoice`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/update-invoice`, {
         new_data: newData,
       });
       props.dataChanged();

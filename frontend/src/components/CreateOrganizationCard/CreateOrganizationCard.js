@@ -19,7 +19,7 @@ const CreateOrganizationCard = (props) => {
     const name = data.get("name");
     const description = data.get("description");
     try {
-      const resp = await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/create_organization`, {
+      const resp = await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/create_organization`, {
         name,
         description,
       });

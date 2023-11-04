@@ -32,7 +32,7 @@ const Organization = (props) => {
   const fetchInvoiceData = async () => {
     try {
       const resp = await httpRequest.post(
-        `http://${process.env.REACT_APP_HOSTNAME}:5000/get-organization-invoices`,
+        `http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/get-organization-invoices`,
         {
           organization_id: orgData.id,
         },
@@ -58,7 +58,7 @@ const Organization = (props) => {
     setActiveOrganization(true);
     userCtx.setActiveOrganization(orgData);
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/activate-organization`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/activate-organization`, {
         organization_id: orgData.id,
       });
       enqueueSnackbar("Organization activated successfully", { variant: "success" });
@@ -73,7 +73,7 @@ const Organization = (props) => {
     setActiveOrganization(false);
     userCtx.setActiveOrganization(null);
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/deactivate-organization`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/deactivate-organization`, {
         organization_id: orgData.id,
       });
       enqueueSnackbar("Organization deactivated successfully", { variant: "success" });

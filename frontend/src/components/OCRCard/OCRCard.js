@@ -31,7 +31,7 @@ const OCRCard = () => {
 
     try {
       const startTime = performance.now();
-      const resp = await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/${OCRmethod}`, formData);
+      const resp = await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/${OCRmethod}`, formData);
       const endTime = performance.now();
       const duration = (endTime - startTime) / 1000;
       const time_other = duration - resp.data.time.recognition + resp.data.time.parsing;

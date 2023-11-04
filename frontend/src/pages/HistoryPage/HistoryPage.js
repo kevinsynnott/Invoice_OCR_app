@@ -25,7 +25,7 @@ const HistoryPage = () => {
 
   const fetchInvoiceData = async () => {
     try {
-      const resp = await httpRequest.get(`http://${process.env.REACT_APP_HOSTNAME}:5000/get-invoices`);
+      const resp = await httpRequest.get(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/get-invoices`);
       setInvoicesData(resp.data.invoices);
     } catch (error) {
       console.log("Error");

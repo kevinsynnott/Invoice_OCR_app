@@ -30,7 +30,7 @@ const LoginPage = () => {
     setLoading(true);
 
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/login`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/login`, {
         email,
         password,
       });

@@ -42,7 +42,7 @@ function UsersTable({ users, onUserUpdated }) {
 
   const handleSave = async () => {
     try {
-      await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/edit-role`, {
+      await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/edit-role`, {
         user_id: selectedUser.id,
         role: selectedRole,
       });

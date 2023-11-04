@@ -63,7 +63,7 @@ const RegisterPage = () => {
     if (nameValid && emailValid && passwordValid) {
       setLoading(true);
       try {
-        await httpRequest.post(`http://${process.env.REACT_APP_HOSTNAME}:5000/register`, {
+        await httpRequest.post(`http://${process.env.REACT_APP_BACKEND_HOSTNAME}:${process.env.REACT_APP_BACKEND_PORT}/register`, {
           name,
           email,
           password,
