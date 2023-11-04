@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 import time
 from paddleocr import PaddleOCR
 from app.paddleParser import parse_text
+from app.paddleParserENG import parse_text_ENG
 from app.operations import load_image, add_invoice_to_db, check_if_invoice
 import os
 
@@ -50,7 +51,12 @@ def process_paddleocr():
     average_score, text = compute_average_score_and_text(result)
 
     start_time_parsing = time.time()
-    parsed_data = parse_text(text)
+    if paddle_lang == 'slk':
+      parsed_data = parse_text(text)
+    elif paddle_lang == 'en':
+      parsed_data = parse_text_ENG(text)
+    else:
+      print("Unsupported language: " + paddle_lang)
     parsing_time = time.time() - start_time_parsing
 
     response = {

@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 import time
 from app.tesseractParser import parse_text
+from app.tesseractParserENG import parse_text_ENG
 from app.operations import load_image, add_invoice_to_db, check_if_invoice
 import pytesseract
 import os
@@ -43,7 +44,14 @@ def process_tesseract():
     average_score = compute_average_score(data)
 
     start_time_parsing = time.time()
-    parsed_data = parse_text(text)
+
+    if tess_lang == 'slk':
+      parsed_data = parse_text(text)
+    elif tess_lang == 'eng':
+      parsed_data = parse_text_ENG(text)
+    else:
+      print("Unsupported language: " + tess_lang)
+    
     parsing_time = time.time() - start_time_parsing
 
     response = {
