@@ -18,7 +18,7 @@ services:
     environment:
       BACKEND_HOSTNAME: "http://localhost:5000"
       TESS_LANGUAGE: "slk"
-      PADDLE_LANG: "en"
+      PADDLE_LANGUAGE: "en"
     depends_on: 
       - postgres
   frontend: 
